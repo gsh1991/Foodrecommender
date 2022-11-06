@@ -1,6 +1,5 @@
 absl-py==1.2.0
 altair==4.2.0
-anaconda-client==1.11.0
 anaconda-navigator==2.2.0
 aniso8601==9.0.1
 appdirs==1.4.4
