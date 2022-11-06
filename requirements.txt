@@ -106,7 +106,6 @@ squarify==0.4.3
 statsmodels==0.13.2
 strsimpy==0.2.1
 sweetviz==2.1.4
-tables==3.6.1
 tangled-up-in-unicode==0.2.0
 tensorboard==2.9.1
 tensorboard-data-server==0.6.1
