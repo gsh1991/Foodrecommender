@@ -85,7 +85,6 @@ phik==0.12.2
 Pillow==9.2.0
 pmdarima==2.0.1
 pre-commit==2.20.0
-protobuf==3.20.1
 pyarrow==9.0.0
 pyasn1-modules==0.2.8
 pycosat==0.6.3
