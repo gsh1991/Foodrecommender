@@ -16,7 +16,6 @@ brotlipy==0.7.0
 category-encoders==2.5.0
 cfgv==3.3.1
 click-default-group==1.2.2
-clyent==1.2.2
 commonmark==0.9.1
 comtypes==1.1.10
 conda==22.9.0
