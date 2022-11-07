@@ -18,7 +18,7 @@ model = pickle.load(open('model1.pkl', 'rb'))
 def home():
 	return render_template('index.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST','GET'])
 def predict():
     
     MealType = int(request.form['PreferredMealType'])
