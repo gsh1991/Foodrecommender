@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Recommendedfoods</h1>
+
+   <form action="{{url_for('predict')}}"method="post">
+          <p>
+	<label for="Category">PreferredMealType</label>
+	<select name="PreferredMealType">
+	<option value="0">Breakfast</option>
+	<option value="1">Desserts</option>
+	<option value="2">Dinner</option>
+	<option value="3">Lunch</option> 
+          </select>
+          </p>
+	<br>
+          <p>
+          <label for="Category">PreferredFoodType</label>
+          <select name="PreferredFoodType">
+	<option value="0">Non-Veg</option>
+	<option value="1">Veg</option> 
+          </select>
+          </p>
+	<br>
+          <p>
+          <label for="Category">MainIngredient</label>
+          <select name="MainIngredient">
+	<option value="0">almonds</option>
+	<option value="1">amaranthflour</option>
+	<option value="2">apples</option>
+	<option value="3">atta</option>
+	<option value="4">banana</option>
+	<option value="5">basmatirice</option>
+	<option value="6">boiledchicken</option>
+	<option value="7">bonelesschicken</option>
+	<option value="8">bread</option>
+	<option value="9">breadscrumbs</option>
+	<option value="10">broccoli</option>
+	<option value="11">buns</option>
+	<option value="12">butter</option>
+	<option value="13">caromseeds</option>
+	<option value="14">cashewnuts</option>
+	<option value="15">cauliflower</option>
+	<option value="16">cheese</option>
+	<option value="17">chicken</option>
+	<option value="18">chicken&prawn</option>
+	<option value="19">chickenbreast</option>
+	<option value="20">chickenbroth</option>
+	<option value="21">chickenchunks</option>
+	<option value="22">chickendrumsticks</option>
+	<option value="23">chickenlegs</option>
+	<option value="24">chickenmasala</option>
+	<option value="25">chickenpieces</option>
+    <option value="26">chickenstock</option>
+	<option value="27">chickenthighs</option>
+	<option value="28">chickenwings</option>
+	<option value="29">chickpeas</option>
+	<option value="30">chillipowder</option>
+	<option value="31">coconut</option>
+	<option value="32">coconutoil</option>
+	<option value="33">cookedrice</option>
+	<option value="34">corn</option>
+	<option value="35">cornflour</option>
+	<option value="36">dicedchicken</option>
+	<option value="37">dressedchicken</option>
+	<option value="38">elaichipowder</option>
+	<option value="39">flour</option>
+	<option value="40">fusilli</option>
+	<option value="41">gingergarlicpaste</option>
+	<option value="42">gramflour</option>
+	<option value="43">kiwi</option>
+	<option value="44">lambmince</option>
+	<option value="45">magaz</option>
+	<option value="46">mangoes</option>
+	<option value="47">mincedchicken</option>
+	<option value="48">mincedgarlic</option>
+	<option value="49">mincedmeat</option>
+	<option value="50">minedmutton</option>
+	<option value="51">mushroom</option>
+    <option value="52">noodles</option>
+	<option value="53">oats</option>
+	<option value="54">onion</option>
+	<option value="55">orange</option>
+	<option value="56">paneer</option>
+	<option value="57">picklegravy</option>
+	<option value="58">potatoes</option>
+	<option value="59">rava</option>
+	<option value="60">redchil</option>
+	<option value="61">rice</option>
+	<option value="62">rotis</option>
+	<option value="63">semolina</option>
+	<option value="64">sesameseeds</option>
+	<option value="65">shreddedchicken</option>
+	<option value="66">skinnedchicken</option>
+	<option value="67">slicedchicken</option>
+	<option value="68">tandoorichicken</option>
+	<option value="69">tomato</option>
+	<option value="70">turmeric</option>
+	<option value="71">walnuts</option>
+	<option value="72">wheatflour</option>
+	</select>
+          </p>
+	<br>
+          <p>
+    <label for="Category">HighlypreferredIngredient</label>
+    <select name="HighlypreferredIngredient">
+	<option value="0">almonds</option>
+	<option value="1">amchoor</option>
+	<option value="2">apples</option>
+	<option value="3">atta</option>
+	<option value="4">badampaste</option>
+	<option value="5">basmatirice</option>
+	<option value="6">blackpeppercorns</option>
+	<option value="7">bonelesschicken</option>
+	<option value="8">bread</option>
+	<option value="9">breadscrumbs</option>
+	<option value="10">butter</option>
+	<option value="11">buttermilk</option>
+	<option value="12">cabbage</option>
+	<option value="13">capsicums</option>
+	<option value="14">cardamom</option>
+	<option value="15">carrots</option>
+	<option value="16">cashew</option>
+	<option value="17">cashewnuts</option>
+	<option value="18">cashews</option>
+	<option value="19">channa</option>
+	<option value="20">cheese</option>
+	<option value="21">chicken</option>
+	<option value="22">chickenmasala</option>
+	<option value="23">chillipowder</option>
+	<option value="24">coconut</option>
+	<option value="25">coconutcream</option>
+          <option value="26">coconutmilk</option>
+	<option value="27">coconutoil</option>
+	<option value="28">coriander</option>
+	<option value="29">curd</option>
+	<option value="30">driedherbs</option>
+	<option value="31">dryfruits</option>
+	<option value="32">eggs</option>
+	<option value="33">fenugreek</option>
+	<option value="34">flour</option>
+	<option value="35">friedonions</option>
+	<option value="36">garlic</option>
+	<option value="37">ghee</option>
+	<option value="38">ginger</option>
+	<option value="39">gingergarlic</option>
+	<option value="40">gratedonions</option>
+	<option value="41">greenapple</option>
+	<option value="42">herbs</option>
+	<option value="43">honey</option>
+	<option value="44">jaggery</option>
+	<option value="45">jalapenos</option>
+	<option value="46">jeera</option>
+	<option value="47">lamb</option>
+	<option value="48">lemon</option>
+	<option value="49">lettuce</option>
+	<option value="50">lime</option>
+	<option value="51">maida</option>
+          <option value="52">malabarpeppercorn</option>
+	<option value="53">mango</option>
+	<option value="54">mushroom</option>
+	<option value="55">mutton</option>
+	<option value="56">onion</option>
+	<option value="57">onionpaste</option>
+	<option value="58">onions</option>
+	<option value="59">paneer</option>
+	<option value="60">papayapaste</option>
+	<option value="61">pasta</option>
+	<option value="62">peanut</option>
+	<option value="63">pepper</option>
+	<option value="64">peppercorns</option>
+	<option value="65">potatoes</option>
+	<option value="66">redchillipowder</option>
+	<option value="67">redpepper</option>
+	<option value="68">roastedpeanuts</option>
+	<option value="69">saffronthreads</option>
+	<option value="70">seekhkababmasala</option>
+	<option value="71">seesamseeds</option>
+	<option value="72">semolina</option>
+          <option value="73">soakeddal</option>
+	<option value="74">springonions</option>
+	<option value="75">sprouts</option>
+	<option value="76">sugar</option>
+	<option value="77">sweetpotato</option>
+	<option value="78">tomatoes</option>
+	<option value="79">turmericpowder</option>
+	<option value="80">vegetables</option>
+	<option value="81">whitewine</option>  
+	</select>
+          </p>
+	<br>
+          <p>
+          <label for="Category">LowpreferredIngredient</label>
+          <select name="LowpreferredIngredient">
+	<option value="0">aromaticpowder</option>
+	<option value="1">bakingsoda</option>
+	<option value="2">blackpepper</option>
+	<option value="3">bread</option>
+	<option value="4">butter</option>
+	<option value="5">calamari</option>
+	<option value="6">chatmasala</option>
+	<option value="7">cheese</option>
+	<option value="8">chillies</option>
+	<option value="9">chillipowder</option>
+	<option value="10">cloves</option>
+	<option value="11">cream</option>
+	<option value="12">curd</option>
+	<option value="13">egg</option>
+	<option value="14">garammasala</option>
+	<option value="15">garlic</option>
+	<option value="16">ghee</option>
+	<option value="17">ginger</option>
+	<option value="18">greenchillies</option>
+	<option value="19">jaggery</option>
+	<option value="20">maida</option>
+	<option value="21">milk</option>
+	<option value="22">oats</option>
+	<option value="23">oil</option>
+	<option value="24">onions</option>
+	<option value="25">peanuts</option>
+          <option value="26">pepper</option>
+	<option value="27">potatoes</option>
+	<option value="28">redchillies</option>
+	<option value="29">rum</option>
+	<option value="30">salt</option>
+	<option value="31">sugar</option>
+	<option value="32">sweetners</option>
+	<option value="33">tomatoes</option>
+	<option value="34">vegetables</option>
+	<option value="35">vinegar</option>
+	<option value="36">water</option>
+	<option value="37">yogurt</option>
+          </select>
+          </p>
+	<br>
+          <p>
+          <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+   </form>
+
+  <br>
+  <br>
+  {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
