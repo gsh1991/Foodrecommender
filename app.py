@@ -18,7 +18,7 @@ model = pickle.load(open('model1.pkl', 'rb'))
 def home():
 	return render_template('index.html')
 
-@app.route('/predict',methods=['POST','GET'])
+@app.route('/predict',methods=['POST'])
 def predict():
     
     MealType = int(request.form['PreferredMealType'])
@@ -35,7 +35,7 @@ def predict():
     prediction = model.predict([[MealType,FoodType,MainIngredient,Highpreferred,Lowpreferred]])
     
     return render_template('index.html', prediction_text=prediction)
-    return jsonify(result={"status": 200})
+    
     
 
     
