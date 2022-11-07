@@ -35,6 +35,7 @@ def predict():
     prediction = model.predict([[MealType,FoodType,MainIngredient,Highpreferred,Lowpreferred]])
     
     return render_template('index.html', prediction_text=prediction)
+    return jsonify(result={"status": 200})
     
 
     
